@@ -1,3 +1,4 @@
+html_with_currency_table = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury Site</title>
     <style>
-    
-        {
+        /* Базові стилі */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -28,25 +29,24 @@
             top: 0;
             z-index: 1000;
         }
-        header nav a {
+        header nav a, header .theme-toggle, header .mission-btn {
             color: #fff;
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
+            display: inline-block;
+            cursor: pointer;
         }
-        header nav a:hover {
-            text-decoration: underline;
+        header .theme-toggle, header .mission-btn {
+            background: #000;
+            border: 1px solid #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        header .theme-toggle {
+        header .theme-toggle:hover, header .mission-btn:hover {
             background: #fff;
             color: #000;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-left: 20px;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .hero {
             height: 100vh;
@@ -98,6 +98,20 @@
             margin: 10px 0;
             color: #333;
         }
+        .currency-table {
+            display: none;
+            margin: 40px auto;
+            width: 80%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .currency-table th, .currency-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .currency-table th {
+            background: #f4f4f4;
+        }
         footer {
             background: #000;
             color: #fff;
@@ -122,6 +136,7 @@
             <a href="#">About</a>
             <a href="#">Contact</a>
             <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+            <button class="mission-btn" onclick="toggleCurrencyTable()">Mission</button>
         </nav>
     </header>
     <section class="hero">
@@ -146,24 +161,24 @@
             <p>Perfect for formal occasions.</p>
             <div class="price">$450</div>
         </div>
-        <div class="catalog-item">
-            <img src="https://via.placeholder.com/300x400?text=Coat+4" alt="Coat 4">
-            <h3>Winter Coat</h3>
-            <p>Warm and stylish for cold seasons.</p>
-            <div class="price">$280</div>
-        </div>
-        <div class="catalog-item">
-            <img src="https://via.placeholder.com/300x400?text=Shirt+5" alt="Shirt 5">
-            <h3>Casual Shirt</h3>
-            <p>Everyday comfort with premium style.</p>
-            <div class="price">$120</div>
-        </div>
-        <div class="catalog-item">
-            <img src="https://via.placeholder.com/300x400?text=Jeans+6" alt="Jeans 6">
-            <h3>Denim Jeans</h3>
-            <p>Durable and trendy for all occasions.</p>
-            <div class="price">$150</div>
-        </div>
+    </section>
+    <section>
+        <table class="currency-table" id="currencyTable">
+            <thead>
+                <tr>
+                    <th>Currency</th>
+                    <th>Exchange Rate (to UAH)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>USD</td><td>37.00</td></tr>
+                <tr><td>EUR</td><td>40.00</td></tr>
+                <tr><td>GBP</td><td>45.00</td></tr>
+                <tr><td>NOK</td><td>3.50</td></tr>
+                <tr><td>PLN</td><td>9.00</td></tr>
+                <tr><td>UAH</td><td>1.00</td></tr>
+            </tbody>
+        </table>
     </section>
     <footer>
         &copy; 2024 Luxury Site. All Rights Reserved.
@@ -173,12 +188,13 @@
             const body = document.body;
             const button = document.querySelector('.theme-toggle');
             body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                button.textContent = 'Light Mode';
-            } else {
-                button.textContent = 'Dark Mode';
-            }
+            button.textContent = body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+        }
+        function toggleCurrencyTable() {
+            const table = document.getElementById('currencyTable');
+            table.style.display = table.style.display === 'table' ? 'none' : 'table';
         }
     </script>
 </body>
 </html>
+"""

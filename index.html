@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Site</title>
+    <style>
+        /* Базові стилі */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 40px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        header .theme-toggle {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-left: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .hero {
+            height: 100vh;
+            background: url('https://via.placeholder.com/1920x1080/ffffff/cccccc?text=Hero+Banner') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 4em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #000;
+            transition: color 0.3s ease;
+        }
+        .dark-mode .hero h1 {
+            color: #fff;
+        }
+        .catalog {
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .catalog-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+        }
+        .catalog-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .catalog-item h3 {
+            padding: 10px 0;
+        }
+        .catalog-item p {
+            color: #777;
+            font-size: 0.9em;
+        }
+        .catalog-item .price {
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #ccc;
+        }
+        .dark-mode header .theme-toggle {
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Catalog</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Luxury Redefined</h1>
+    </section>
+    <section class="catalog">
+        <div class="catalog-item">
+            <img src="https://via.placeholder.com/300x400?text=Jacket+1" alt="Jacket 1">
+            <h3>Elegant Jacket</h3>
+            <p>Premium quality, perfect for every occasion.</p>
+            <div class="price">$250</div>
+        </div>
+        <div class="catalog-item">
+            <img src="https://via.placeholder.com/300x400?text=Dress+2" alt="Dress 2">
+            <h3>Luxury Dress</h3>
+            <p>Designed for elegance and comfort.</p>
+            <div class="price">$320</div>
+        </div>
+        <div class="catalog-item">
+            <img src="https://via.placeholder.com/300x400?text=Suit+3" alt="Suit 3">
+            <h3>Classic Suit</h3>
+            <p>Perfect for formal occasions.</p>
+            <div class="price">$450</div>
+        </div>
+        <div class="catalog-item">
+            <img src="https://via.placeholder.com/300x400?text=Coat+4" alt="Coat 4">
+            <h3>Winter Coat</h3>
+            <p>Warm and stylish for cold seasons.</p>
+            <div class="price">$280</div>
+        </div>
+        <div class="catalog-item">
+            <img src="https://via.placeholder.com/300x400?text=Shirt+5" alt="Shirt 5">
+            <h3>Casual Shirt</h3>
+            <p>Everyday comfort with premium style.</p>
+            <div class="price">$120</div>
+        </div>
+        <div class="catalog-item">
+            <img src="https://via.placeholder.com/300x400?text=Jeans+6" alt="Jeans 6">
+            <h3>Denim Jeans</h3>
+            <p>Durable and trendy for all occasions.</p>
+            <div class="price">$150</div>
+        </div>
+    </section>
+    <footer>
+        &copy; 2024 Luxury Site. All Rights Reserved.
+    </footer>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.querySelector('.theme-toggle');
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                button.textContent = 'Light Mode';
+            } else {
+                button.textContent = 'Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>
